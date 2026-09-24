@@ -1,0 +1,19 @@
+name: Build phpredis for PHP 8.5
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-2022
+
+    steps:
+      - name: Build phpredis 6.3.0
+        uses: php/php-windows-builder/extension@v1
+        with:
+          extension-url: https://github.com/phpredis/phpredis
+          extension-ref: 6.3.0
+          php-version: '8.5'
+          arch: x64
+          ts: nts
+          run-tests: false
